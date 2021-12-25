@@ -1,0 +1,173 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Projectile Motion</title>
+        <link rel="stylesheet" href="design.css">
+    </head>
+    
+    <body>
+        <center>
+        <h1> <img src="img/galala-logo.png" width="50" height="50"> To Prof. Mahmoud Abd El-Aziem Bakr</h1>
+        </center> 
+        <h3 id="fpsIndicator">FPS: 0</h3>
+        
+        <h3 id="mouse">X:0  Y:0</h3>
+              
+        <canvas id="area" height=500 width=1700></canvas>
+        
+        <p id="collision">collision indicator</p>
+        <p id="ballCount">NºBalls: 0</p>
+        
+        <br>
+        <br>
+               
+        <div id="infoarea">
+           
+            <!-- triangle-->
+            <div style="border: 1px solid black; width: 220px; padding: 3px;">
+                <h2 style="text-align: center;">TRIANGLE</h2>
+
+                <h3 id="hypotenuse">hypotenuse: 0</h3>
+
+                <h3 id="adj">adjacent: 0</h3>
+                <h3 id="opp">opposite: 0</h3>
+                <h3 id="theta">&theta;: 0.00º</h3>
+                <h3 id="currentRads"></h3>
+            </div>
+            
+            <!-- motion input -->
+            <div style="border: 1px solid black; width: 220px; padding: 3px;">
+                <h2 style="text-align: center;">MOTION INPUT</h2>
+
+                
+                <div>
+                    <p>Launch Velocity (m/s)</p>
+                    <input type="number" id="velocity">
+                </div>
+                
+                <div>
+                    <p>Launch Angle (degrees)</p>
+                    <input type="number" id="launchAngle">
+                </div>
+                
+                <div>
+                    <p>Vertical Acceleration (gravity)</p>
+                    <select name="" id="acceleration">
+                        <option value="-3.7">Mercury (3.7 m/s)</option>
+                        <option value="-8.87">Venus (8.87 m/s)</option>
+                        <option selected value="-9.807">Earth (9.807 m/s)</option>
+                        <option value="-3.711">Mars (3.711 m/s)</option>
+                        <option value="-24.79">Jupiter (24.79 m/s)</option>
+                        <option value="-10.44">Saturn (10.44 m/s)</option>
+                        <option value="-8.87">Uranus (8.87 m/s)</option>
+                        <option value="-11.15">Neptune (11.15 m/s)</option>
+                        <option value="-0.62">Pluto (0.62 m/s)</option>
+                        <option value="-5000">STRONK GRAVITY (5000m/s)</option>
+                    </select>
+                </div>
+                
+            </div>
+            
+            <!-- motion data -->
+            <div style="border: 1px solid black; padding: 3px;">
+                <h2 style="text-align: center;">
+                    PREDICTED MOTION DATA
+                    <h4 style="text-align: center;">(with 0 collisions assumed)</h4>    
+                </h2>
+                
+
+                <div id="container">
+                  
+                   <!-- fields -->
+                   <div class="subcontainer">
+                        <div>
+                            <p>Vertical Velocity (m/s)</p>
+                            <input type="number" id="Yvel">
+                        </div>
+
+                        <div>
+                            <p>Horizontal Velocity (m/s)</p>
+                            <input type="number" id="Xvel">
+                        </div>
+
+                        <div>
+                            <p>Flight Time (seconds)</p>
+                            <input type="number" id="time">
+                        </div>
+                    </div>
+                    
+                    <!-- fields 2 -->
+                    <div class="subcontainer">
+                        <div>
+                            <p>Max Height achieved (m)</p>
+                            <input type="number" id="mHeight">
+                        </div>
+
+                        <div>
+                            <p>X displacement (aprox.range)</p>
+                            <input type="number" id="Xdisplacement">
+                        </div>
+
+                        <div>
+                            <p>Y Acceleration (gravity)</p>
+                            <input type="number" id="yAcceleration">
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                </div>    
+                
+            </div>
+            
+            <!-- manual input-->
+            <div style="border: 1px solid black; padding: 3px;">
+               
+                <h2 style="text-align: center;">MANUAL INPUT</h2>
+                
+                <div id="container">
+                  
+                   <!-- fields -->
+                   <div class="subcontainer">
+                       
+                        <div>
+                            <p>Launch Angle (degrees)</p>
+                            <input type="number" id="mAngle">
+                        </div>
+
+                        <div>
+                            <p>Launch Velocity (m/s)</p>
+                            <input type="number" id="mVelocity">
+                        </div>
+
+                       <div style="display: flex; justify-content: center; margin-top: 3px;">
+                            <button id="launchManual">
+                                Launch!
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>    
+        
+        
+        <!-- THESE TWO IMAGES ARE SUPPOSED TO BE THE THETA SYMBOL FOR THE ANGLE, 
+             AND THE ARROW TIP, FOR THE VECTOR, NOW THEY'RE EMPTY FOR OBVIOUS REASONS -->
+        
+        <img src="" id="angle" alt="" style="display: none;">
+        <img src="" id="tip" alt="" style="display: none;">
+    </body>
+    
+    <footer>
+        <script src="ball.js" type="text/javascript"></script>
+        <script src="motion.js" type="text/javascript"></script>
+        <script src="src.js" type="text/javascript"></script>
+    </footer>
+    <footer><h3>© Created By Youssef Abosrewa</h3></footer>
+    
+</html>
